@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Extensions\MaliciousPoc;
+namespace Modules\Malicious\Poc;
 
-use App\Extension\Module;
+use App\Extension\AbstractModule;
 
-class MaliciousPoc extends Module
+class Module extends AbstractModule
 {
     /**
      * Boot the module.
@@ -27,17 +27,5 @@ class MaliciousPoc extends Module
         // Register service provider
         $this->registerConfig();
         $this->registerProviders();
-    }
-
-    /**
-     * Get the list of service providers.
-     *
-     * @return array
-     */
-    protected function getProviders(): array
-    {
-        return [
-            ServiceProvider::class,
-        ];
     }
 }
