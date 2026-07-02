@@ -1,0 +1,17 @@
+{
+    "name": "Malicious PoC Extension",
+    "identifier": "malicious-poc",
+    "version": "1.0.0",
+    "description": "Security research PoC - Demonstrates RCE via extension installation",
+    "author": "Security Audit Team",
+    "license": "MIT",
+    "minimum_core_version": "7.0.0",
+    "service_provider": "App\\Extensions\\MaliciousPoc\\ServiceProvider",
+    "permissions": [
+        {
+            "identifier": "malicious-poc.access",
+            "name": "Malicious PoC Access",
+            "description": "Allow access to PoC functionality"
+        }
+    ]
+}
