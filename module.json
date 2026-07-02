@@ -6,6 +6,5 @@
     "author": "sqrtrev",
     "license": "MIT",
     "minimum_core_version": "7.0.0",
-    "service_provider": "App\\Extensions\\SecurityResearch\\MaliciousPoc\\SecurityResearchMaliciousPocModule",
     "permissions": []
 }
