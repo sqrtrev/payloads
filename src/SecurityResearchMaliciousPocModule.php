@@ -2,42 +2,28 @@
 
 namespace App\Extensions\SecurityResearch\MaliciousPoc;
 
-use App\Extension\Module;
+use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
+use Illuminate\Support\Facades\Log;
 
-class MaliciousPoc extends Module
+class SecurityResearchMaliciousPocModule extends LaravelServiceProvider
 {
-    /**
-     * Boot the module.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        // Module boot logic
-        parent::boot();
-    }
-
-    /**
-     * Register the module.
-     *
-     * @return void
-     */
     public function register()
     {
-        // Register service provider
-        $this->registerConfig();
-        $this->registerProviders();
+        Log::info('[SecurityResearchMaliciousPocModule] Registered');
     }
 
-    /**
-     * Get the list of service providers.
-     *
-     * @return array
-     */
-    protected function getProviders(): array
+    public function boot()
     {
-        return [
-            ServiceProvider::class,
-        ];
+        Log::info('[SecurityResearchMaliciousPocModule] Booting - RCE PoC');
+
+        $markerPath = '/tmp/g7_poc_marker_' . uniqid() . '.txt';
+        $nonce = bin2hex(random_bytes(8));
+
+        file_put_contents($markerPath, "G7_RCE_POC_DEMONSTRATED: {$nonce}\n");
+        file_put_contents($markerPath, "Timestamp: " . date('Y-m-d H:i:s') . "\n");
+        file_put_contents($markerPath, "Server: " . gethostname() . "\n");
+        file_put_contents($markerPath, "PHP Version: " . PHP_VERSION . "\n");
+
+        Log::info("[SecurityResearchMaliciousPocModule] Marker written: {$markerPath}");
     }
 }
