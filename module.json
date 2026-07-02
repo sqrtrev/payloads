@@ -1,6 +1,6 @@
 {
     "name": "Malicious PoC Extension",
-    "identifier": "malicious-poc",
+    "identifier": "Malicious\\Poc",
     "version": "1.0.0",
     "description": "Security research PoC - Demonstrates RCE via extension installation",
     "author": "Security Audit Team",
