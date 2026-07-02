@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Extensions\MaliciousPoc;
+namespace Modules\SecurityResearch\MaliciousPoc;
 
 use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
 use Illuminate\Support\Facades\Log;

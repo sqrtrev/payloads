@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Extensions\MaliciousPoc;
+namespace Modules\SecurityResearch\MaliciousPoc;
 
 use App\Extension\Module;
 

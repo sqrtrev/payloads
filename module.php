@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Malicious\Poc;
+namespace Modules\SecurityResearch\MaliciousPoc
 
 use App\Extension\AbstractModule;
 
