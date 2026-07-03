@@ -1,0 +1,10 @@
+{
+    "identifier": "malicious-poc",
+    "vendor": "sqrtrev",
+    "name": "Malicious PoC",
+    "version": "1.0.0",
+    "description": "Malicious extension for RCE PoC",
+    "author": "sqrtrev",
+    "license": "MIT",
+    "dependencies": []
+}
