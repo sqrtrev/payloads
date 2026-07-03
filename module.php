@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\MaliciousPoc;
+namespace Modules\Malicious\Poc;
 
 use App\Extension\AbstractModule;
 use Illuminate\Support\Facades\Log;
